@@ -43,16 +43,17 @@ function updateEmployees(array) {
             <td>${employee.employeeID}</td>
             <td>${employee.title}</td>
             <td>${employee.annualSalary}</td>
-            <td><button id="deleteBtn">Delete</button></td>
+            <td><button class="deleteBtn">Delete</button></td>
         </tr>`;
         $el.append(displayString);
-        $('#deleteBtn').on('click', function () {
+        $('.deleteBtn').on('click', function() {
             console.log('inside');
-            $('.tableData').remove();
+            $(this).parent().parent().empty();
+           
+
         });
         } // end loop
 }// end updateIEmployees
-
 
 
 
