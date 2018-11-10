@@ -14,8 +14,7 @@ class Employee {
 
 function readyNow() {
     $('#submitButton').on('click', newEmployee);
-    $('#deleteBtn').on('click', deleteF);
-    };
+};
 function newEmployee() {
     const newEmployee = new Employee(
         $('#firstName').val(),
@@ -38,7 +37,7 @@ function updateEmployees(array) {
     // loop through employees & append to table
     for (let employee of array) {
         let displayString =
-            `<tr>
+            `<tr class = "tableData">
             <td>${employee.firstName}</td> 
             <td>${employee.lastName}</td> 
             <td>${employee.employeeID}</td>
@@ -47,12 +46,14 @@ function updateEmployees(array) {
             <td><button id="deleteBtn">Delete</button></td>
         </tr>`;
         $el.append(displayString);
-    } // end loop
-} // end updateIEmployees
- 
-function deleteF(){
-    $(this).parent().parent().remove();
-}
+        $('#deleteBtn').on('click', function () {
+            console.log('inside');
+            $('.tableData').remove();
+        });
+        } // end loop
+}// end updateIEmployees
+
+
 
 
 
