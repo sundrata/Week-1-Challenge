@@ -13,7 +13,7 @@ class Employee {
 }// end employee class
 
 function readyNow() {
-    $('#submitButton').on('click', newEmployee)
+    $('#submitButton').on('click', newEmployee);
 }
 function newEmployee() {
     const newEmployee = new Employee(
@@ -32,11 +32,9 @@ function newEmployee() {
     updateEmployees(employees);
 }
 function updateEmployees(array) {
-    // target the ul by ID
     let $el = $('#employeeData');
-    // empty ul
     $el.empty();
-    // loop through the inventory & display each item in ul
+    // loop through employees & append to table
     for (let employee of array) {
         let displayString = 
         `<tr>
@@ -45,20 +43,18 @@ function updateEmployees(array) {
             <td>${employee.employeeID}</td>
             <td>${employee.title}</td>
             <td>${employee.annualSalary}</td>
-            <button>
+            <td><button class="deleteEmp">Delete</button></td>
         </tr>`;
         $el.append(displayString);
-    } // end for 
-} // end updateInventory
+    } // end loop
+} // end updateIEmployees
 
 
 
 
 
 
-//reset values
-// $( '#firstName' ).val(''),
-//     $( '#lastName' ).val(''), 
-//     $( '#employeeID' ).val(''), 
-//     $( '#title' ).val(''),
-//     $( '#annualSalary').val('')
+
+
+
+// .val + .val  +.val of annualSalary
