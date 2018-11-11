@@ -1,6 +1,7 @@
 $(document).ready(readyNow);
 
-let employees = [];
+const employees = [];
+let total = 0;
 
 class Employee {
     constructor(firstName, lastName, employeeID, title, annualSalary) {
@@ -46,14 +47,22 @@ function updateEmployees(array) {
             <td><button class="deleteBtn">Delete</button></td>
         </tr>`;
         $el.append(displayString);
-        $('.deleteBtn').on('click', function() {
+        function monthTotal() {
+            total += (displayString.annualSalary / 12);
+                $('h2').append(total);
+        }
+        $('.deleteBtn').on('click', function () {
             console.log('inside');
-            $(this).parent().parent().empty();
-           
-
+            $(this).parent().parent().remove();
+            employees.splice(0);
         });
-        } // end loop
+        monthTotal();
+    } // end loop
 }// end updateIEmployees
+
+
+
+
 
 
 
