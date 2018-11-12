@@ -31,6 +31,16 @@ function newEmployee() {
     $('#title').val('');
     $('#annualSalary').val('');
     updateEmployees(employees);// reset input values
+    monthTotal();
+    function monthTotal() {
+        total += parseFloat(newEmployee.annualSalary / 12); 
+            $('h2').empty();
+            $('h2').append('Total Monthly Cost:', total.toFixed(2));
+        }
+    if(total >= 20000){
+        $("h2").css("background-color", "red");
+
+    }
 }
 function updateEmployees(array) {
     let $el = $('#employeeData');
@@ -56,10 +66,13 @@ function updateEmployees(array) {
             $(this).parent().parent().remove();
             employees.splice(0);
         });
-        monthTotal();
-    } // end loop
+    }
+     // end loop
 }// end updateIEmployees
-
+function monthTotal() {
+    total += (newEmployee.annualSalary / 12);
+        $('h2').append('total');
+    }
 
 
 
