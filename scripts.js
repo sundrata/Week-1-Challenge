@@ -63,8 +63,8 @@ function updateEmployees(array) {
         }
         $('.deleteBtn').on('click', function () {
             console.log('inside');
+            employees.splice(array.indexOf(employee),1);
             $(this).parent().parent().remove();
-            employees.splice(0);
         });
     }
      // end loop
